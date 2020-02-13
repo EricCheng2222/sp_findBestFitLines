@@ -42,7 +42,7 @@ def main():
 
     #read data
     inputFile = sys.argv[1]
-    genFile(inputFile)
+    #genFile(inputFile)
     data = pd.read_csv(inputFile, names=["TIME", "addr"])
 
     #separate data
@@ -57,7 +57,7 @@ def main():
     intercept = Lregressor.intercept_[0]
     coefficient = Lregressor.coef_[0][0]
     angle = toAngle(np.arctan(coefficient))
-    print(angle)
+    #print(angle)
 
     tic = time.perf_counter()
     #get points above linear regression
@@ -78,7 +78,7 @@ def main():
 
     count = dataC.groupby('lineEq').count()
     count = count.sort_values(by=['TIME'], ascending=False)
-    print(count[0:5])
+    print(count[0:10])
     print(count.shape)
     toc = time.perf_counter()
     print(toc - tic)
